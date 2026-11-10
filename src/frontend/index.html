@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tienda Online</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Tienda Online</h1>
+    <form id="form-api" class="api">
+      <label>URL de la API
+        <input id="api-url" type="text" value="http://localhost:8000" required>
+      </label>
+      <button type="submit">Conectar</button>
+      <span id="estado-api"></span>
+    </form>
+  </header>
+
+  <div id="mensaje" class="mensaje oculto"></div>
+
+  <main>
+    <!-- PRODUCTOS -->
+    <section>
+      <h2>Productos</h2>
+      <form id="form-buscar">
+        <label>Buscar por nombre <input id="buscar-nombre" placeholder="Nombre exacto"></label>
+        <button type="submit">Buscar</button>
+        <button type="button" id="btn-ver-todos">Ver todos</button>
+      </form>
+      <table>
+        <thead><tr><th>Nombre</th><th>Tipo</th><th>Precio</th><th>Stock</th><th>Detalles</th></tr></thead>
+        <tbody id="tabla-productos"></tbody>
+      </table>
+
+      <h3>Nuevo producto</h3>
+      <form id="form-producto">
+        <label>Tipo
+          <select id="prod-tipo">
+            <option value="generico">Genérico</option>
+            <option value="electronico">Electrónico</option>
+            <option value="ropa">Ropa</option>
+          </select>
+        </label>
+        <label>Nombre <input id="prod-nombre" required></label>
+        <label>Precio <input id="prod-precio" type="number" step="0.01" min="0.01" required></label>
+        <label>Stock <input id="prod-stock" type="number" min="0" required></label>
+        <label class="campo-electronico oculto">Meses de garantía <input id="prod-garantia" type="number" min="1"></label>
+        <label class="campo-ropa oculto">Talla <input id="prod-talla"></label>
+        <label class="campo-ropa oculto">Color <input id="prod-color"></label>
+        <button type="submit">Crear producto</button>
+      </form>
+    </section>
+
+    <!-- USUARIOS -->
+    <section>
+      <h2>Usuarios</h2>
+      <table>
+        <thead><tr><th>Nombre</th><th>Email</th><th>Rol</th></tr></thead>
+        <tbody id="tabla-usuarios"></tbody>
+      </table>
+    </section>
+
+    <!-- PEDIDOS -->
+    <section>
+      <h2>Nuevo pedido</h2>
+      <form id="form-pedido">
+        <label>Cliente <select id="pedido-cliente" required></select></label>
+        <div id="lineas-pedido"></div>
+        <button type="button" id="btn-linea">+ Añadir producto</button>
+        <button type="submit">Crear pedido</button>
+      </form>
+
+      <h2>Pedidos de un usuario</h2>
+      <form id="form-consulta">
+        <label>Cliente <select id="consulta-cliente" required></select></label>
+        <button type="submit">Ver pedidos</button>
+      </form>
+      <div id="lista-pedidos"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
