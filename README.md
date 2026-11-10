@@ -100,17 +100,17 @@ INFO:     172.17.0.1:43038 - "GET /productos HTTP/1.1" 200 OK
 
 ```bash
 docker login
-docker tag tienda-online-api:1.0.0 DOCKERHUB_USER/tienda-online-api:1.0.0
-docker tag tienda-online-api:1.0.0 DOCKERHUB_USER/tienda-online-api:latest
-docker push DOCKERHUB_USER/tienda-online-api:1.0.0
-docker push DOCKERHUB_USER/tienda-online-api:latest
+docker tag tienda-online-api:1.0.0 nicogeinchi/tienda-online-api:1.0.0
+docker tag tienda-online-api:1.0.0 nicogeinchi/tienda-online-api:latest
+docker push nicogeinchi/tienda-online-api:1.0.0
+docker push nicogeinchi/tienda-online-api:latest
 ```
 
 ### 6. Descargar y ejecutar la imagen publicada (pull)
 
 ```bash
-docker pull DOCKERHUB_USER/tienda-online-api:1.0.0
-docker run --rm -p 8000:8000 DOCKERHUB_USER/tienda-online-api:1.0.0
+docker pull nicogeinchi/tienda-online-api:1.0.0
+docker run --rm -p 8000:8000 nicogeinchi/tienda-online-api:1.0.0
 ```
 
 Flujo seguido: **build → run → test → push**.
